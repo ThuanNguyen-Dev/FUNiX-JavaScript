@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Lab 2.1 - 2.6</title>
+  <script>
+    //#region 2.1
+    console.log("2.1")
+    // let country = "Việt Nam";
+    // let continent = "Asia";
+    // let population = 96.2;
+    // let isIsland = false;
+    // let language;
+
+    // console.log("Country: " + country, " Continent: " + continent, " Population: " + population + " Triệu dân " + " isIsland: " + isIsland + " Language: " + language)
+    // console.log("isIsland: " + typeof isIsland, "| Population: " + typeof population, "| Country: " + typeof country, "| Language: " + typeof language)
+    //#endregion 2.1
+
+    //#region 2.2
+    console.log("2.2")
+    let country = "Việt Nam";
+    let continent = "Asia";
+    let population = 96.2;
+    const isIsland = false;
+    const language = "Vietnamese";
+    // language = "abs"
+
+    console.log("Country: " + country, " Continent: " + continent, " Population: " + population + " Triệu dân " + " isIsland: " + isIsland + " Language: " + language)
+    //#endregion 2.2
+
+    //#region 2.3
+    console.log("2.3")
+    console.log(population / 2)
+    console.log(population + 1)
+
+    const PHANLAN_POPULATION = 6;
+    if (population > PHANLAN_POPULATION) {
+      console.log(`${population} triệu dân > 6 triệu dân`)
+    } else {
+      console.log(`${population} triệu dân < 6 triệu dân`)
+    }
+
+    const AVG_POPULATION = 33;
+    if (population > AVG_POPULATION) {
+      console.log(`${population} triệu dân > 33 triệu dân`)
+    } else {
+      console.log(`${population} triệu dân < 33 triệu dân`)
+    }
+
+    let description0 = country + " and its " + population + " million people speak " + language
+    console.log(description0)
+    //#endregion 2.3
+
+    //#region 2.4
+    console.log("2.4")
+    let description1 = `${country} and its ${population} million people speak ${language}`
+    console.log(description1)
+    //#endregion 2.4
+
+    //#region 2.5
+    if (population > 33) {
+      console.log(`${country}'s population is above average`)
+    } else {
+      console.log(`${country}'s population is ${33 - population} million below average`)
+    }
+    //#endregion 2.5
+
+    //#region 2.6
+    console.log("2.6")
+    //#region 2.6.
+    // Mark_kg = 78, Mark_height = 1.69, John_kg = 92, John_height = 1.95;
+    // Mark_kg = 95, Mark_height = 1.88, John_kg = 85, John_height = 1.76;
+    function IBM(Mark_kg, Mark_height, John_kg, John_height) {
+      let Mark_BMI = Mark_kg / (Mark_height * Mark_height);
+      let John_BMI = John_kg / (John_height * John_height);
+      console.log("Mark BMI: " + Mark_BMI, "John BMI: " + John_BMI)
+      let markHigherBMI = Mark_BMI > John_BMI;
+      console.log(markHigherBMI)
+    }
+    IBM(78, 1.69, 92, 1.95)
+    IBM(95, 1.88, 85, 1.76)
+    //#endregion 2.6.1
+
+    //#region 2.6.2
+    function IBM_2(Mark_kg, Mark_height, John_kg, John_height) {
+      let Mark_BMI = Mark_kg / (Mark_height * Mark_height);
+      let John_BMI = John_kg / (John_height * John_height);
+      console.log("Mark BMI: " + Mark_BMI, "John BMI: " + John_BMI)
+      if (Mark_BMI > John_BMI) {
+        console.log("Mark's BMI is higher than John's!")
+      } else {
+        console.log("John's BMI is higher than Mark's!")
+      }
+    }
+    IBM_2(78, 1.69, 92, 1.95)
+    IBM_2(95, 1.88, 85, 1.76)
+
+    function IBM_3(Mark_kg, Mark_height, John_kg, John_height) {
+      let Mark_BMI = Mark_kg / (Mark_height * Mark_height);
+      let John_BMI = John_kg / (John_height * John_height);
+      console.log("Mark BMI: " + Mark_BMI, "John BMI: " + John_BMI)
+      if (Mark_BMI > John_BMI) {
+        console.log(`Mark's BMI (${Mark_BMI}) is higher than John's (${John_BMI})!`)
+      } else {
+        console.log(`John's BMI (${Mark_BMI}) is higher than Mark's (${John_BMI})!`)
+      }
+    }
+    IBM_3(78, 1.69, 92, 1.95)
+    IBM_3(95, 1.88, 85, 1.76)
+    //#endregion 2.6.2
+    //#endregion 2.6
+  </script>
+</head>
+
+<body>
+  <h1>Lab 2.1 - 2.6</h1>
+</body>
+
+</html>
