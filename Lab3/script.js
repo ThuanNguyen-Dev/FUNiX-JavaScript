@@ -125,3 +125,53 @@ population > 33000000
   ? console.log("Portugal's population is above average")
   : console.log("Portugal's population is below average");
 //#endregion 3.5
+
+//#region 3.6
+/**
+ * ? 3.6.1. Đội nào chiến thắng
+ * Có hai đội thể dục dụng cụ là Dolphins và Koalas. Họ thi đấu với nhau 3 lần. Đội nào có điểm trung bình cao nhất sẽ chiến thắng!
+ * ? Nhiệm vụ của bạn:
+ * Tính điểm cho từng đội, sử dụng dữ liệu kiểm tra bên dưới
+ * So sánh điểm trung bình của hai đội để tìm ra đội chiến thắng và in ra console. Đừng quên là có thể hòa, nên hãy kiểm tra điều đó (hòa tức là họ có điểm trung bình giống nhau),
+ * nếu hòa bạn hãy in ra màn hình "Both win the trophy!".
+ * Bonus 1: Chúng ta được thêm một quy tắc như sau: số điểm tối thiểu là 100 điểm . Theo quy tắc này, một đội sẽ giành chiến thắng chỉ khi họ có điểm trung bình cao hơn đội còn lại,
+ * và đồng thời có ít nhất 100 điểm. Gợi ý: Sử dụng toán tử logic để kiểm tra điểm số tối thiểu cũng như các else-if block!
+ * Bonus 2: Điểm số tối thiểu cũng áp dụng cho việc hòa trận! Trường hợp hòa nhau chỉ xảy ra khi cả hai đội có số điểm giống nhau mà phải lớn hơn hoặc bằng 100 điểm.
+ * Nếu không thì không có đội nào giành chiến thắng cả.
+ * * Dữ liệu 1: Dolphins được 96, 108 và 89 điểm. Koalas được 88, 91 và 110 điểm
+ * * Dữ liệu Bonus 1: Dolphins được 97, 112 và 101 điểm. Koalas được 109, 95 và 123 điểm
+ * * Dữ liệu Bonus 2: Dolphins được 97, 112 và 101 điểm. Koalas được 109, 95 và 106 điểm
+ */
+
+const scoreDolphins = (96 + 108 + 89) / 3; // = 97.666
+const scoreKoalas = (88 + 91 + 110) / 3; // = 96.333
+if (scoreDolphins == scoreKoalas) {
+  console.log("Both win the trophy!");
+} else if (scoreDolphins > scoreKoalas) {
+  console.log("Dolphins win the trophy!");
+} else if (scoreDolphins < scoreKoalas) {
+  console.log("Koalas win the trophy!");
+}
+// Bonus 1
+const scoreDolphins1 = (97 + 112 + 101) / 3; // = 103.333
+const scoreKoalas1 = (109 + 95 + 123) / 3; // = 109
+if (scoreDolphins1 > scoreKoalas1 && scoreDolphins1 >= 100) {
+  console.log("Dolphins win the trophy!");
+} else if (scoreDolphins1 < scoreKoalas1 && scoreKoalas1 >= 100) {
+  console.log("Koalas win the trophy!");
+}
+// Bonus 2
+const scoreDolphins2 = (97 + 112 + 101) / 3; // = 103.333
+const scoreKoalas2 = (109 + 95 + 106) / 3; // = 103.333
+if (
+  scoreDolphins2 == scoreKoalas2 &&
+  scoreKoalas2 >= 100 &&
+  scoreDolphins2 >= 100
+) {
+  console.log("Both win the trophy!");
+} else if (scoreDolphins2 > scoreKoalas2 && scoreDolphins2 >= 100) {
+  console.log("Dolphins win the trophy!");
+} else if (scoreDolphins2 < scoreKoalas2 && scoreKoalas2 >= 100) {
+  console.log("Koalas win the trophy!");
+}
+//#endregion 3.6
