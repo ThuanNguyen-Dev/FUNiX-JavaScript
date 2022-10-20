@@ -170,6 +170,16 @@ checkWinner(calcAverage(85, 54, 41), calcAverage(23, 34, 27));
  * Bonus: Tạo array 'total' có chứa tổng giá trị, tức là bill+tip.
  * * Dữ liệu kiểm tra: 125, 555 và 44.
  */
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+// *test 1
+console.log(calcTip(100));
 
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]; // bill + tip
+// *test 2
+console.log(bills, tips, totals);
 //#endregion Lab 4.7.2
 //#endregion Lab 4.7
