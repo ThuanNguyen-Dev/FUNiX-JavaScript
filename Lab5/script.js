@@ -64,4 +64,19 @@ console.log(myCountry1.describe(), myCountry1.isIsland());
 for (let i = 1; i <= 50; i++) {
   console.log(`Voter number ${i} is currently voting`);
 }
+
+/**
+ * ? Lab 5.5. Lặp trong array, break và continue (15 phút)
+ * Hãy lấy lại array 'populations' từ bài lab trước.
+ * Sử dụng vòng lặp for để tạo array 'percentages2' chứa phần trăm dân số thế giới cho 4 giá trị population. Sử dụng hàm 'percentageOfWorld1' mà bạn đã tạo trước đó.
+ * Xác nhận rằng 'percentages2' chứa chính xác các giá trị trong array 'percentages' mà chúng ta đã tạo theo cách thủ công ở lab trước, để xem giải pháp này tốt hơn như thế nào.
+ */
+const populations = [99, 125, 1441, 51];
+const percentages2 = [];
+const percentageOfWorld1 = (population) => (population / 7900) * 100;
+for (let i = 0; i < populations.length; i++) {
+  percentages2.push(percentageOfWorld1(populations[i]));
+}
+console.log(percentages2);
+
 //#endregion Lab 5
