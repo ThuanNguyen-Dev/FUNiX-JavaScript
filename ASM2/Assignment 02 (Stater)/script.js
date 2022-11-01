@@ -1,7 +1,8 @@
 "use strict";
 
 // Declare variable
-const petArr = [];
+const petArr = JSON.parse(getFromStorage("pets"));
+const breedArr = JSON.parse(getFromStorage("breed"));
 let healthyCheck = false;
 const submitBtn = document.getElementById("submit-btn");
 const idInput = document.getElementById("input-id");
@@ -85,8 +86,8 @@ const validate = function () {
 
 const getData_fr_input = function () {
   return {
-    id: idInput.value,
-    name: nameInput.value,
+    id: idInput.value.trim(),
+    name: nameInput.value.trim(),
     age: parseInt(ageInput.value),
     type: typeInput.value,
     weigth: weigthInput.value,
@@ -162,6 +163,7 @@ const deletePet = function (id) {
     for (let i = 0; i < petArr.length; i++) {
       if (petArr[i].id === id) {
         petArr.splice(i, 1);
+        saveToStorage("pets", JSON.stringify(petArr));
       }
     }
     renderTableData(petArr);
@@ -173,7 +175,8 @@ submitBtn.addEventListener("click", function () {
   // check validate
   if (validate()) {
     const data = getData_fr_input();
-    petArr.push(data); // Push object to array
+    petArr.push(data);
+    saveToStorage("pets", JSON.stringify(petArr));
     clearInput();
     renderTableData(petArr);
   }
@@ -219,54 +222,48 @@ calculateBMI.addEventListener("click", function () {
   renderTableData(petArr);
 });
 
-// * turn on comments for test data
-//#region data test
-// petArr.push(
-//   {
-//     id: "P1",
-//     name: "1",
-//     age: 1,
-//     type: "Cat",
-//     weigth: "5",
-//     length: "50",
-//     color: "#000000",
-//     breed: "Tabby",
-//     vaccinated: true,
-//     dewormed: true,
-//     sterilized: true,
-//     BMI: "?",
-//     date: "10/28/2022",
-//   },
-//   {
-//     id: "P2",
-//     name: "2",
-//     age: 2,
-//     type: "Dog",
-//     weigth: "3",
-//     length: "40",
-//     color: "#6f2f2f",
-//     breed: "Mixed Breed",
-//     vaccinated: true,
-//     dewormed: true,
-//     sterilized: false,
-//     BMI: "?",
-//     date: "10/28/2022",
-//   },
-//   {
-//     id: "P3",
-//     name: "3",
-//     age: 3,
-//     type: "Dog",
-//     weigth: "3",
-//     length: "30",
-//     color: "#000000",
-//     breed: "Tabby",
-//     vaccinated: false,
-//     dewormed: true,
-//     sterilized: true,
-//     BMI: "?",
-//     date: "10/28/2022",
-//   }
-// );
-// renderTableData(petArr);
-//#endregion data test
+/**
+ * TODO: Chức năng Edit để chỉnh sửa thông tin của thú cưng
+ * TODO: Chức năng Search để tìm kiếm thú cưng
+ */
+
+// Toggle class active when click on navbar
+const sidebarTitleEl = document.getElementById("sidebar-title");
+const sidebarEl = document.getElementById("sidebar");
+sidebarTitleEl.addEventListener("click", function () {
+  sidebarEl.classList.toggle("active");
+});
+
+// Hiển thị Breed trong màn hình quản lý thú cưng
+const renderBreed = function () {
+  // tìm tất cả option của Breed Input
+  const old_op = document.querySelectorAll("#input-breed>option");
+  // duyệt qua mảng old_op để remove các phần tử trong mảng
+  for (let i = 1; i < old_op.length; i++) {
+    old_op[i].remove();
+  }
+
+  const type = typeInput.value;
+  for (let i = 0; i < breedArr.length; i++) {
+    if (breedArr[i].type === type) {
+      const option = document.createElement("option");
+      option.innerHTML = `
+    <option value="${breedArr[i].breed}">${breedArr[i].breed}</option>`;
+      breedInput.appendChild(option);
+    }
+  }
+};
+
+const init = function () {
+  // Check if there is data in local storage
+  if (JSON.parse(getFromStorage("pets")).length > 0) {
+    renderTableData(petArr);
+    // Hiển thị Breed trong màn hình quản lý thú cưng
+    typeInput.onchange = function () {
+      renderBreed();
+    };
+  }
+};
+
+// start
+init();
