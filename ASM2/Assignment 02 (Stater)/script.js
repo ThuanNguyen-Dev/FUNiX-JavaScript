@@ -109,7 +109,7 @@ const clearInput = function () {
   typeInput.value = "Select Type";
   weigthInput.value = "";
   lengthInput.value = "";
-  colorInput.value = "";
+  colorInput.value = "#000000";
   breedInput.value = "Select Breed";
   vaccinatedInput.checked = false;
   dewormedInput.checked = false;
@@ -222,11 +222,6 @@ calculateBMI.addEventListener("click", function () {
   renderTableData(petArr);
 });
 
-/**
- * TODO: Chức năng Edit để chỉnh sửa thông tin của thú cưng
- * TODO: Chức năng Search để tìm kiếm thú cưng
- */
-
 // Toggle class active when click on navbar
 const sidebarTitleEl = document.getElementById("sidebar-title");
 const sidebarEl = document.getElementById("sidebar");
@@ -247,8 +242,8 @@ const renderBreed = function () {
   for (let i = 0; i < breedArr.length; i++) {
     if (breedArr[i].type === type) {
       const option = document.createElement("option");
-      option.innerHTML = `
-    <option value="${breedArr[i].breed}">${breedArr[i].breed}</option>`;
+      option.innerHTML =
+        breedArr[i].breed.charAt(0).toUpperCase() + breedArr[i].breed.slice(1);
       breedInput.appendChild(option);
     }
   }
@@ -267,3 +262,7 @@ const init = function () {
 
 // start
 init();
+
+// TODO: Chức năng Edit để chỉnh sửa thông tin của thú cưng
+//* đẩy các thông tin lên table, khi nhấn edit thì remove class hire để hiện form chỉnh sửa và hiển thị dữ liệu đã chọn lên form
+// TODO: Chức năng Search để tìm kiếm thú cưng
