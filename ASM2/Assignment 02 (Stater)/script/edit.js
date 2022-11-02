@@ -80,7 +80,7 @@ submitBtn.addEventListener("click", function () {
   if (validate()) {
     const pet = petArr.find((pet) => pet.id === idInput.value);
     pet.name = nameInput.value.trim();
-    pet.age = ageInput.value.trim();
+    pet.age = parseInt(ageInput.value.trim());
     pet.type = typeInput.value.trim();
     pet.weigth = weigthInput.value.trim();
     pet.length = lengthInput.value.trim();

@@ -263,6 +263,5 @@ const init = function () {
 // start
 init();
 
-// TODO: Chức năng Edit để chỉnh sửa thông tin của thú cưng
-//* đẩy các thông tin lên table, khi nhấn edit thì remove class hire để hiện form chỉnh sửa và hiển thị dữ liệu đã chọn lên form
 // TODO: Chức năng Search để tìm kiếm thú cưng
+// TODO: Chức năng Import/Export dữ liệu
