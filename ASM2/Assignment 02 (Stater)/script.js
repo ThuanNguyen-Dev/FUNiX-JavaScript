@@ -222,13 +222,6 @@ calculateBMI.addEventListener("click", function () {
   renderTableData(petArr);
 });
 
-// Toggle class active when click on navbar
-const sidebarTitleEl = document.getElementById("sidebar-title");
-const sidebarEl = document.getElementById("sidebar");
-sidebarTitleEl.addEventListener("click", function () {
-  sidebarEl.classList.toggle("active");
-});
-
 // Hiển thị Breed trong màn hình quản lý thú cưng
 const renderBreed = function () {
   // tìm tất cả option của Breed Input

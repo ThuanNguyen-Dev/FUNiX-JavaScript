@@ -39,7 +39,7 @@ if (checkNull("pets")) {
         weigth: "5",
         length: "50",
         color: "#000000",
-        breed: "Tabby",
+        breed: "British Longhair",
         vaccinated: true,
         dewormed: true,
         sterilized: true,
@@ -54,7 +54,7 @@ if (checkNull("pets")) {
         weigth: "3",
         length: "40",
         color: "#6f2f2f",
-        breed: "Mixed Breed",
+        breed: "Tiny Poodle",
         vaccinated: true,
         dewormed: true,
         sterilized: false,
@@ -69,7 +69,7 @@ if (checkNull("pets")) {
         weigth: "3",
         length: "30",
         color: "#000000",
-        breed: "Tabby",
+        breed: "Poodle",
         vaccinated: false,
         dewormed: true,
         sterilized: true,
@@ -79,3 +79,10 @@ if (checkNull("pets")) {
     ])
   );
 }
+
+// Toggle class active when click on navbar
+const sidebarTitleEl = document.getElementById("sidebar-title");
+const sidebarEl = document.getElementById("sidebar");
+sidebarTitleEl.addEventListener("click", function () {
+  sidebarEl.classList.toggle("active");
+});
