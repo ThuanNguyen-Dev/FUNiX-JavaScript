@@ -263,5 +263,4 @@ const init = function () {
 // start
 init();
 
-// TODO: Chức năng Search để tìm kiếm thú cưng
 // TODO: Chức năng Import/Export dữ liệu
