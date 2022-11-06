@@ -223,37 +223,46 @@ calculateBMI.addEventListener("click", function () {
 });
 
 // Hiển thị Breed trong màn hình quản lý thú cưng
-const renderBreed = function () {
+const renderBreed = function (type) {
   // tìm tất cả option của Breed Input
   const old_op = document.querySelectorAll("#input-breed>option");
   // duyệt qua mảng old_op để remove các phần tử trong mảng
   for (let i = 1; i < old_op.length; i++) {
     old_op[i].remove();
   }
-
-  const type = typeInput.value;
-  for (let i = 0; i < breedArr.length; i++) {
-    if (breedArr[i].type === type) {
+  // nếu type === "Select Type" thì xuất ra tất cả type
+  if (type === "Select Type") {
+    for (let i = 0; i < breedArr.length; i++) {
       const option = document.createElement("option");
       option.innerHTML =
         breedArr[i].breed.charAt(0).toUpperCase() + breedArr[i].breed.slice(1);
       breedInput.appendChild(option);
     }
   }
-};
-
-const init = function () {
-  // Check if there is data in local storage
-  if (JSON.parse(getFromStorage("pets")).length > 0) {
-    renderTableData(petArr);
-    // Hiển thị Breed trong màn hình quản lý thú cưng
-    typeInput.onchange = function () {
-      renderBreed();
-    };
+  // ngược lại: thì xuất type theo type [Dog, Cat]
+  else {
+    for (let i = 0; i < breedArr.length; i++) {
+      if (breedArr[i].type === type) {
+        const option = document.createElement("option");
+        option.innerHTML =
+          breedArr[i].breed.charAt(0).toUpperCase() +
+          breedArr[i].breed.slice(1);
+        breedInput.appendChild(option);
+      }
+    }
   }
+};
+const init = function () {
+  renderBreed("Select Type");
+  // Check if there is data in local storage
+  if (petArr.length > 0) {
+    renderTableData(petArr);
+  }
+  // Hiển thị Breed trong màn hình quản lý thú cưng
+  typeInput.onchange = function () {
+    renderBreed(typeInput.value);
+  };
 };
 
 // start
 init();
-
-// TODO: Chức năng Import/Export dữ liệu
