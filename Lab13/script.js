@@ -1,25 +1,30 @@
-var Car = {
-  make: "",
-  speed: "",
-  accelerate: function () {
-    console.log(`${this.make} đi với tốc độ ${(this.speed += 10)} km/h`);
-  },
-  brake: function () {
-    console.log(`${this.make} đi với tốc độ ${(this.speed -= 5)} km/h`);
-  },
+"use strict";
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
 };
 
-// *Dữ liệu car 1: 'BMW' đi với tốc độ 120 km/h
-// *Dữ liệu car 2: 'Mercedes' đi với tốc độ 95km/h
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} đi với tốc độ ${this.speed} km/h`);
+};
 
-var myCar = Object.create(Car);
-myCar.make = "BMW";
-myCar.speed = 120;
-myCar.accelerate();
-myCar.brake();
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} đi với tốc độ  ${this.speed} km/h`);
+};
 
-var myCar2 = Object.create(Car);
-myCar2.make = "Mercedes";
-myCar2.speed = 95;
-myCar2.accelerate();
-myCar2.brake();
+const bmw = new Car("BMW", 120);
+const mercedes = new Car("Mercedes", 95);
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.brake();
+bmw.accelerate();
+
+mercedes.accelerate();
+mercedes.brake();
+mercedes.brake();
+
+// ES6

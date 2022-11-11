@@ -24,6 +24,7 @@ class Car {
 
 const bmw = new Car("BMW", 120);
 console.log(bmw.speedUS);
+console.log((bmw.speedUS = 50));
 
 const mercedes = new Car("Mercedes", 95);
 console.log(mercedes.speedUS);

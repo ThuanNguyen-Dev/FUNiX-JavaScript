@@ -3,12 +3,7 @@
     "development"
   ],
   "hints": {
-    "axe/forms": [
-      "default",
-      {
-        "label": "off"
-      }
-    ],
+    "axe/forms": "off",
     "no-inline-styles": "off",
     "button-type": "off",
     "disown-opener": "off",
@@ -23,6 +18,7 @@
       {
         "image-alt": "off"
       }
-    ]
+    ],
+    "highest-available-document-mode": "off"
   }
 }
