@@ -40,7 +40,7 @@ const validate = function () {
   }
 
   for (let user in userArr) {
-    if (userArr[user].username === username.value) {
+    if (parseUser(userArr[user]).username === username.value) {
       alert("Username is the same as an existing username!");
       return false;
     }
@@ -74,8 +74,8 @@ const validate = function () {
 
 function parseUser(userData) {
   const user = new User(
-    userData.firstname,
-    userData.lastname,
+    userData.firstName,
+    userData.lastName,
     userData.username,
     userData.password
   );
