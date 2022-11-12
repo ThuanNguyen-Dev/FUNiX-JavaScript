@@ -1,9 +1,6 @@
 "use strict";
 
-// TODO: Home Page
-// TODO: Chức năng Logout
-// TODO: Hiển thị các bài viết
-// TODO: Chuyển trang cho các bài viết
+// TODO: Chuyển trang cho các bài viết 80%
 /**
  * TODO: Hiển thị Todo List
  * 1. Thêm mới Todo và Lưu dữ liệu vào LocalStorage.

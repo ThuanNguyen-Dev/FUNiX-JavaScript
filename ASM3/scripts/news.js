@@ -4,7 +4,9 @@
 const API_KEY = "02d4424b0f544c63b1e8e9e563ef1993";
 
 const country = "us";
-const pageSize = JSON.parse(getFromStorage("pageSize")) || 3;
+const settings = JSON.parse(getFromStorage("settings")) || "";
+const pageSize = settings.pageSize || 5;
+const category = settings.category || "";
 const totalResults = 30;
 
 const prevBtn = document.getElementById("btn-prev");
@@ -18,7 +20,7 @@ const renderError = function (msg) {
 const getNews = async function (page) {
   try {
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`
+      `https://newsapi.org/v2/top-headlines?q=${category}&country=${country}&apiKey=${API_KEY}&pageSize=${pageSize}&page=${page}`
     );
     if (!res.ok) throw new Error("Problem getting data");
     const data = await res.json();
