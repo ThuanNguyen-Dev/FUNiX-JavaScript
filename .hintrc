@@ -19,6 +19,7 @@
         "image-alt": "off"
       }
     ],
-    "highest-available-document-mode": "off"
+    "highest-available-document-mode": "off",
+    "meta-charset-utf-8": "off"
   }
 }
