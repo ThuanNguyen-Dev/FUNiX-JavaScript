@@ -23,3 +23,6 @@ btnLogout.addEventListener("click", (e) => {
   deleteStorage("currentUser");
   window.location.href = "../../ASM3/pages/login.html";
 });
+
+// TODO: Chuyển trang cho các bài viết 80%
+// TODO: (Nâng cao) Tìm kiếm bài viết theo từ khóa
