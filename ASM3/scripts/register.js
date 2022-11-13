@@ -1,5 +1,6 @@
 "use strict";
 
+// variable
 const min_pass = 8;
 const KEY = "USER_ARRAY";
 const userArr = JSON.parse(getFromStorage(KEY)) || [];
@@ -11,20 +12,8 @@ const username = document.getElementById("input-username");
 const password = document.getElementById("input-password");
 const passwordConfirm = document.getElementById("input-password-confirm");
 
-submitBtn.addEventListener("click", (e) => {
-  if (!validate()) return;
-  e.preventDefault();
-  const user = new User(
-    firstName.value,
-    lastName.value,
-    username.value,
-    password.value
-  );
-  userArr.push(user);
-  saveToStorage(KEY, JSON.stringify(userArr));
-  window.location.href = "login.html";
-});
-
+// function
+// hàm kiểm tra dữ liệu nhập vào
 const validate = function () {
   if (firstName.value === "") {
     alert("Please enter your first name");
@@ -72,6 +61,7 @@ const validate = function () {
   return true;
 };
 
+// hàm in user
 function parseUser(userData) {
   const user = new User(
     userData.firstName,
@@ -79,6 +69,21 @@ function parseUser(userData) {
     userData.username,
     userData.password
   );
-
   return user;
 }
+
+// event listener
+submitBtn.addEventListener("click", (e) => {
+  if (!validate()) return;
+  e.preventDefault();
+  const user = new User(
+    firstName.value,
+    lastName.value,
+    username.value,
+    password.value
+  );
+  userArr.push(user);
+  saveToStorage(KEY, JSON.stringify(userArr));
+  alert("Register successfully!");
+  window.location.href = "login.html";
+});

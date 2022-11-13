@@ -10,17 +10,10 @@ const btnAdd = document.getElementById("btn-add");
 const todoList = document.getElementById("todo-list");
 
 // function
-btnAdd.addEventListener("click", (e) => {
-  if (!validate()) return;
-  e.preventDefault();
-  const newTask = new Task(inputTask.value, currentUser.username, false);
-  todoArr.push(newTask);
-  saveToStorage(KEY, JSON.stringify(todoArr));
-  renderTodoList();
-});
-
+// hàm xuất task ra html
 const renderTodoList = function () {
   todoList.innerHTML = "";
+  // duyệt các phần tử trong mảng todoArr và xuất ra html
   for (let task in todoArr) {
     if (todoArr[task].owner === currentUser.username) {
       const html = `
@@ -32,6 +25,7 @@ const renderTodoList = function () {
       todoList.innerHTML += html;
     }
 
+    // thêm sự kiện click vào nút x để xóa task
     const close = document.getElementsByClassName("close");
     for (let i = 0; i < close.length; i++) {
       close[i].onclick = function () {
@@ -43,6 +37,7 @@ const renderTodoList = function () {
       };
     }
 
+    // thêm sự kiện click vào task để đánh dấu hoàn thành
     const list = document.querySelectorAll("#todo-list>li");
     for (let i = 0; i < list.length; i++) {
       list[i].onclick = function () {
@@ -54,12 +49,14 @@ const renderTodoList = function () {
   }
 };
 
+// hàm kiểm tra dự liệu đầu vào
 const validate = function () {
   if (inputTask.value === "") {
     alert("Please enter your task");
     return false;
   }
 
+  // kiểm tra task đã tồn tại chưa
   for (let task in todoArr) {
     if (todoArr[task].task === inputTask.value) {
       alert("Task is the same as an existing task!");
@@ -69,6 +66,18 @@ const validate = function () {
   return true;
 };
 
+// event listener
+// sự kiện chạy khi click vào nút add
+btnAdd.addEventListener("click", (e) => {
+  if (!validate()) return;
+  e.preventDefault();
+  const newTask = new Task(inputTask.value, currentUser.username, false);
+  todoArr.push(newTask);
+  saveToStorage(KEY, JSON.stringify(todoArr));
+  renderTodoList();
+});
+
+// sự kiện khi load trang
 window.addEventListener("load", () => {
   renderTodoList();
 });

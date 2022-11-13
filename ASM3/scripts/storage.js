@@ -1,5 +1,6 @@
 "use strict";
 
+// function
 function saveToStorage(key, value) {
   localStorage.setItem(key, value);
 }

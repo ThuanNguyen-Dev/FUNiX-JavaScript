@@ -1,0 +1,97 @@
+{
+  "status": "ok",
+  "totalResults": 38,
+  "articles": [
+    {
+      "source": {
+        "id": "the-washington-post",
+        "name": "The Washington Post"
+      },
+      "author": "Ashley Parker, Josh Dawsey, Michael Scherer",
+      "title": "Republican rivals start plotting a post-Trump future - The Washington Post",
+      "description": "The GOP's disappointing midterm results spur some donors and party leaders to consider other 2024 candidates.",
+      "url": "https://www.washingtonpost.com/politics/2022/11/13/trump-republicans-rivals-2024/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/NOOKG6XLK5DMTFJDI3ZC3IXNOY.jpg&w=1440",
+      "publishedAt": "2022-11-13T12:44:03Z",
+      "content": "Comment on this story\r\nFive days after a disappointing midterm election result and two days before former president Donald Trump is expected to announce a 2024 presidential bid, Republicans are grapp… [+12268 chars]"
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Democrats retain control of Senate with victory in Nevada - CBS News",
+      "description": "Sen. Catherine Cortez Masto's victory Saturday evening clinched Senate control for the Democrats four days after Election Day.",
+      "url": "https://www.cbsnews.com/news/2022-election-democrats-senate-nevada-catherine-cortez-masto-adam-laxalt/",
+      "urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2022/11/13/bed75c0a-cf64-4055-905b-8d53e1d50116/thumbnail/1200x630/f4e3f6782a83405f19425da10fcc6813/gettyimages-1428118684.jpg",
+      "publishedAt": "2022-11-13T12:21:00Z",
+      "content": "Democrats will continue to control the Senate following the 2022 midterm elections, after Nevada Sen. Catherine Cortez Masto on Saturday was projected by CBS News to win a tight reelection race again… [+5233 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Daily Mail"
+      },
+      "author": "Codie Bullen",
+      "title": "Aaron Carter 'died without a will' leaving the State of California to decide who inherits his estate - Daily Mail",
+      "description": "Aaron Carter reportedly 'died without a will' leaving the State of California to decide who inherits his estate.",
+      "url": "https://www.dailymail.co.uk/tvshowbiz/article-11422567/Aaron-Carter-died-without-leaving-State-California-decide-inherits-estate.html",
+      "urlToImage": "https://i.dailymail.co.uk/1s/2022/11/13/11/64494659-0-image-a-59_1668339701457.jpg",
+      "publishedAt": "2022-11-13T11:46:58Z",
+      "content": "Aaron Carter reportedly 'died without a will' leaving the State of California to decide who inherits his estate.\r\nAaron, 34, the brother of famed pop icon and Backstreet Boys singer Nick Carter, was … [+9040 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "Ukraine's Kherson races to restore power, water after Russian retreat - Reuters",
+      "description": "Utility companies in Kherson were working to restore critical infrastructure damaged and mined by fleeing Russian forces, with most homes in the southern Ukrainian city still without electricity and water, regional officials said on Sunday.",
+      "url": "https://www.reuters.com/world/europe/donetsk-battles-are-hell-ukraines-zelenskiy-says-kherson-mops-up-2022-11-13/",
+      "urlToImage": "https://www.reuters.com/resizer/iCvZgGB5iY1u1pjj5D2kTdJrbOs=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/LH7R6WP5WBLIFLA3HJNZ2BYOZA.jpg",
+      "publishedAt": "2022-11-13T11:34:00Z",
+      "content": "KHERSON, Ukraine, Nov 13 (Reuters) - Utility companies in Kherson were working to restore critical infrastructure damaged and mined by fleeing Russian forces, with most homes in the southern Ukrainia… [+3958 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "BBC News"
+      },
+      "author": "https://www.facebook.com/bbcnews",
+      "title": "The fall of the FTX ‘King of Crypto’ Sam Bankman-Fried - BBC",
+      "description": "How a crypto empire built on video game battles and beanbags came crashing down.",
+      "url": "https://www.bbc.com/news/technology-63612489",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/BAA5/production/_127618774_5cddff17-11a0-4777-9fe8-0d3fdf9c52e3.jpg",
+      "publishedAt": "2022-11-13T11:25:59Z",
+      "content": "It took fewer than eight days for Sam Bankman-Fried to go from being nicknamed the \"King Of Crypto\" to his company filing for bankruptcy and him stepping down as chief executive, potentially facing f… [+8113 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Zoe Sottile",
+      "title": "Mindfulness works just as well as medication to curb anxiety, study finds - CNN",
+      "description": "A mindfulness meditation course may be as effective at reducing anxiety as a common medication, according to a new study.",
+      "url": "https://www.cnn.com/2022/11/13/health/meditation-lexapro-wellness-trnd/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221111135057-home-meditation-stock.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-11-13T11:01:00Z",
+      "content": "A mindfulness meditation course may be as effective at reducing anxiety as a common medication, according to a new study.\r\nThe research, published on November 9 in JAMA Psychiatry, involved a group o… [+5559 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Betsy Klein, Phil Mattingly, Kevin Liptak",
+      "title": "Biden celebrates Democrats holding the Senate on second day of Asia summits - CNN",
+      "description": "President Joe Biden landed in Cambodia on Saturday still reveling in midterm election results that have produced an unexpected boost at home for his second two years in office.",
+      "url": "https://www.cnn.com/2022/11/12/politics/joe-biden-cambodia-day-two/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/221113042759-01-biden-cambodia-111322.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2022-11-13T10:42:00Z",
+      "content": "Phnom Penh, CambodiaCNN\r\n  — \r\nPresident Joe Biden landed in Cambodia on Saturday still reveling in midterm election results that have produced an unexpected boost at home for his second two years in… [+5903 chars]"
+    }
+  ]
+}
