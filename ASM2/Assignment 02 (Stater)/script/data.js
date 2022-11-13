@@ -1,7 +1,7 @@
 "use strict";
 
 // Declare variable
-const petArr = JSON.parse(getFromStorage("pets"));
+const petArr = JSON.parse(getFromStorage("pets")) || [];
 const form = document.querySelector("form");
 const file = document.getElementById("input-file");
 const importBtn = document.getElementById("import-btn");

@@ -1,7 +1,7 @@
 "use strict";
 
 // Declare variable
-const breedArr = JSON.parse(getFromStorage("breed"));
+const breedArr = JSON.parse(getFromStorage("breed")) || [];
 const breedInput = document.getElementById("input-breed");
 const typeInput = document.getElementById("input-type");
 const submitBtn = document.getElementById("submit-btn");
