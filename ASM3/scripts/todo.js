@@ -29,8 +29,6 @@ const renderTodoList = function () {
     const close = document.getElementsByClassName("close");
     for (let i = 0; i < close.length; i++) {
       close[i].onclick = function () {
-        const li = this.parentElement;
-        li.style.display = "none";
         todoArr.splice(i, 1);
         saveToStorage(KEY, JSON.stringify(todoArr));
         renderTodoList();
@@ -41,7 +39,7 @@ const renderTodoList = function () {
     const list = document.querySelectorAll("#todo-list>li");
     for (let i = 0; i < list.length; i++) {
       list[i].onclick = function () {
-        todoArr[i].isDone = true;
+        todoArr[i].isDone = !todoArr[i].isDone;
         saveToStorage(KEY, JSON.stringify(todoArr));
         renderTodoList();
       };
@@ -75,6 +73,7 @@ btnAdd.addEventListener("click", (e) => {
   todoArr.push(newTask);
   saveToStorage(KEY, JSON.stringify(todoArr));
   renderTodoList();
+  inputTask.value = "";
 });
 
 // sự kiện khi load trang
