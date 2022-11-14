@@ -87,17 +87,23 @@ const validate = function () {
 
 // hàm tính tổng số trang và ẩn/ tắt các nút chuyển trang
 const totalPages = function (page, totalResults) {
-  total_Results.innerHTML = `<p>Approximately ${totalResults} results</p>`;
-  const totalPages = Math.ceil(totalResults / pageSize);
-  if (page === 1) {
-    prevBtn.style.display = "none";
-  }
-  if (page === totalPages) {
-    nextBtn.style.display = "none";
-  }
-  if (page > 1 && page < totalPages) {
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+  if (totalResults > 0) {
+    total_Results.innerHTML = `<p>Approximately ${totalResults} results</p>`;
+    // Phương thức Math.ceil() làm tròn một số đến số nguyên lớn nhất tiếp theo.
+    const totalPages = Math.ceil(totalResults / pageSize);
+    if (page === 1) {
+      prevBtn.style.display = "none";
+    }
+    if (page === totalPages) {
+      prevBtn.style.display = "block";
+      nextBtn.style.display = "none";
+    }
+    if (page > 1 && page < totalPages) {
+      prevBtn.style.display = "block";
+      nextBtn.style.display = "block";
+    }
+  } else {
+    total_Results.innerHTML = `<p>keyword <b>${queryInput.value}</b> does not return results</p>`;
   }
 };
 

@@ -10,6 +10,7 @@ const pageSize = settings.pageSize || 5;
 
 const prevBtn = document.getElementById("btn-prev");
 const nextBtn = document.getElementById("btn-next");
+const total_Results = document.getElementById("totalResults");
 const news = document.querySelector("#news-container");
 
 // function
@@ -48,12 +49,15 @@ const getNews = async function (page) {
     );
     if (!res.ok) throw new Error("Problem getting data");
     const data = await res.json();
-    // sử dụng array.map để load dữ liệu từ API ra html
-    data.articles.map(function (article) {
-      renderToHTML(article);
-    });
-    const totalResults = data.totalResults;
-    totalPages(page, totalResults);
+    const newsdata = data.articles;
+    if (newsdata.length === 0) {
+      total_Results.innerHTML = `<p>Category <b>${category}</b> does not return results</p>`;
+    } else {
+      // sử dụng array.map để load dữ liệu từ API ra html
+      data.articles.map((item) => renderToHTML(item));
+      const totalResults = data.totalResults;
+      totalPages(page, totalResults);
+    }
   } catch (err) {
     console.error(`${err} 💥`);
     renderError(`Something went wrong 💥💥💥 ${err.message}. Try again!`);
@@ -89,11 +93,13 @@ const renderToHTML = function (data) {
 
 // hàm tính tổng số trang và ẩn/ tắt các nút chuyển trang
 const totalPages = function (page, totalResults) {
+  // Phương thức Math.ceil() làm tròn một số đến số nguyên lớn nhất tiếp theo.
   const totalPages = Math.ceil(totalResults / pageSize);
   if (page === 1) {
     prevBtn.style.display = "none";
   }
   if (page === totalPages) {
+    prevBtn.style.display = "block";
     nextBtn.style.display = "none";
   }
   if (page > 1 && page < totalPages) {

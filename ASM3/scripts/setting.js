@@ -17,7 +17,8 @@ btnSubmit.addEventListener("click", function () {
   };
   if (currentUser) {
     saveToStorage(`${currentUser.username}-settings`, JSON.stringify(settings));
-    location.reload();
+    alert("Settings saved");
+    window.location.href = "../pages/news.html";
   }
 });
 
