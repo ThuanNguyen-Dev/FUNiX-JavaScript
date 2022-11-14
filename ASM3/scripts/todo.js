@@ -13,6 +13,11 @@ const todoList = document.getElementById("todo-list");
 // hàm xuất task ra html
 const renderTodoList = function () {
   todoList.innerHTML = "";
+  if (!currentUser) {
+    alert("Please login to use this feature");
+    window.location.href = "../pages/login.html";
+    return;
+  }
   // duyệt các phần tử trong mảng todoArr và xuất ra html
   for (let task in todoArr) {
     if (todoArr[task].owner === currentUser.username) {

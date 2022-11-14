@@ -28,26 +28,31 @@ const validate = function () {
   return true;
 };
 
+// hàm kiểm tra đã có user không. nếu không có truy cập trang register để đăng kí user
+const loginUser = function () {
+  const user = userArr.filter((user) => user.username == username.value);
+  // kiểm tra nếu độ dài mảng user trả về là 0 thì hiển thị thông báo
+  if (user.length === 0) {
+    const isExecuted = confirm(
+      "There is no user in the system. Please register first"
+    );
+    if (isExecuted) {
+      window.location.href = "../pages/register.html";
+    }
+  }
+  // nếu có user thì kiểm tra password
+  else {
+    if (user[0].password === password.value) {
+      saveToStorage("currentUser", JSON.stringify(user[0]));
+      window.location.href = "../pages/news.html";
+    } else {
+      alert("Wrong password");
+    }
+  }
+};
+
 // event listener
 submitBtn.addEventListener("click", (e) => {
   if (!validate()) return;
-  e.preventDefault();
-  // duyệt các phần tử trong mảng userArr
-  for (let user in userArr) {
-    // nếu username và password nhập vào trùng với username và password trong mảng userArr
-    if (
-      userArr[user].username === username.value &&
-      userArr[user].password === password.value
-    ) {
-      const curent_user = {
-        firstName: userArr[user].firstName,
-        lastName: userArr[user].lastName,
-        username: userArr[user].username,
-        password: userArr[user].password,
-      };
-      console.log(curent_user);
-      saveToStorage("currentUser", JSON.stringify(curent_user)); // lưu user xuống local storage với tên "currentUser"
-      window.location.href = "../index.html";
-    }
-  }
+  loginUser();
 });
