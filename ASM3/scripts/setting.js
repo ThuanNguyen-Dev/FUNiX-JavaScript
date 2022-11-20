@@ -11,6 +11,7 @@ const btnSubmit = document.getElementById("btn-submit");
 
 // event listener
 btnSubmit.addEventListener("click", function () {
+  if (!validate()) return;
   const settings = {
     pageSize: inputPageSize.value,
     category: inputCategory.value,
@@ -27,3 +28,16 @@ window.addEventListener("load", function () {
   inputPageSize.value = settings.pageSize || 5;
   inputCategory.value = settings.category || "General";
 });
+
+// function
+const validate = function () {
+  if (inputPageSize.value === "") {
+    alert("Please enter page size");
+    return false;
+  }
+  if (inputPageSize.value < 1) {
+    alert("Page size must be greater than 0");
+    return false;
+  }
+  return true;
+};
