@@ -1,10 +1,10 @@
 "use strict";
 
 // variable
-const KEY = "TASK_ARRAY";
-const todoArr = JSON.parse(getFromStorage(KEY)) || [];
 const currentUser = JSON.parse(getFromStorage("currentUser"));
-
+const KEY = "TASK_ARRAY";
+const todoArr =
+  JSON.parse(getFromStorage(`${currentUser.username}-${KEY}`)) || [];
 const inputTask = document.getElementById("input-task");
 const btnAdd = document.getElementById("btn-add");
 const todoList = document.getElementById("todo-list");
@@ -30,24 +30,50 @@ const renderTodoList = function () {
       todoList.innerHTML += html;
     }
 
+    // Create a "close" button and append it to each list item
+    var myNodelist = document.getElementsByTagName("ul#todo-list>li");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+    }
+
     // thêm sự kiện click vào nút x để xóa task
     const close = document.getElementsByClassName("close");
     for (let i = 0; i < close.length; i++) {
       close[i].onclick = function () {
-        todoArr.splice(i, 1);
-        saveToStorage(KEY, JSON.stringify(todoArr));
-        renderTodoList();
+        var div = this.parentElement;
+        const index = todoArr.findIndex(
+          (item) => item.task === div.innerText.replace("\n×", "").trim()
+        );
+        todoArr.splice(index, 1);
+        saveToStorage(
+          `${currentUser.username}-${KEY}`,
+          JSON.stringify(todoArr)
+        );
+        div.style.display = "none";
       };
     }
-
     // thêm sự kiện click vào task để đánh dấu hoàn thành
-    const list = document.querySelectorAll("#todo-list>li");
+    const list = document.querySelectorAll("ul#todo-list>li");
     for (let i = 0; i < list.length; i++) {
-      list[i].onclick = function () {
-        todoArr[i].isDone = !todoArr[i].isDone;
-        saveToStorage(KEY, JSON.stringify(todoArr));
-        renderTodoList();
-      };
+      list[i].addEventListener("click", function (ev) {
+        if (ev.target.tagName === "LI") {
+          ev.target.classList.toggle("checked");
+          const index = todoArr.findIndex(
+            (item) =>
+              item.task === ev.target.innerText.replace("\n×", "").trim()
+          );
+          todoArr[index].isDone = !todoArr[index].isDone;
+          saveToStorage(
+            `${currentUser.username}-${KEY}`,
+            JSON.stringify(todoArr)
+          );
+        }
+      });
     }
   }
 };
@@ -76,7 +102,7 @@ btnAdd.addEventListener("click", (e) => {
   e.preventDefault();
   const newTask = new Task(inputTask.value, currentUser.username, false);
   todoArr.push(newTask);
-  saveToStorage(KEY, JSON.stringify(todoArr));
+  saveToStorage(`${currentUser.username}-${KEY}`, JSON.stringify(todoArr));
   renderTodoList();
   inputTask.value = "";
 });

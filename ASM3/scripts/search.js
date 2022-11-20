@@ -110,6 +110,7 @@ const totalPages = function (page, totalResults) {
 // event handler.
 // hàm xử lý khi click vào nút search
 searchBtn.addEventListener("click", function () {
+  if (!validate()) return;
   clearNews();
   getNews(queryInput.value, 1);
   numPage.textContent = 1;
